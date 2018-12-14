@@ -1,0 +1,8 @@
+const temjectCopy = require('../temjectCopy')
+const os = require('os')
+const fs = require('fs')
+const writeFileAtomic = require('write-file-atomic')
+const path = require('path')
+const srcPath = path.join(os.tmpdir(), 'temjectCopySrc.txt')
+const distDir = path.join(os.tmpdir(), 'testDir')
+const distPath = path.join(distDir, 'temjectCopyDist.txt')

@@ -1,0 +1,47 @@
+{
+  "name": "temject.copy",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=7.10.1"
+  },
+  "description": "",
+  "keywords": [
+    "template",
+    "hashids"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run jest -- --watch",
+    "cover": "npm test -- --coverage"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.0",
+    "eslint-plugin-jsdoc": "^3.9.1",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "homepage": "https://github.com/mick-whats/temject.copy",
+  "bugs": "https://github.com/mick-whats/temject.copy/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mick-whats/temject.copy.git"
+  },
+  "license": "MIT",
+  "author": "mick-whats",
+  "dependencies": {
+    "globby": "^8.0.1",
+    "make-dir": "^1.3.0",
+    "temject": "^0.2.3",
+    "write-file-atomic": "^2.3.0"
+  }
+}
