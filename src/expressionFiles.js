@@ -1,4 +1,3 @@
-const path = require('path')
 const readFile = require('./readFile')
 const globby = require('globby')
 const { expressions } = require('temject')
@@ -17,9 +16,7 @@ const { expressions } = require('temject')
  */
 module.exports = function expressionFiles (glob, opts = {}) {
   return new Promise(async (resolve, reject) => {
-    console.log('glob: ', glob)
     const paths = await globby(glob, { dot: true })
-    console.log('paths: ', paths)
     Promise.all(paths.map(p => readFile(p)))
       .then(items => {
         const res = expressions(items.join(''))
