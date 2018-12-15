@@ -26,3 +26,8 @@ test('temjectCopy test', async () => {
   const res = fs.readFileSync(distPath, 'utf8')
   expect(res).toBe('Hello, World!')
 })
+test('temjectCopy plain', async () => {
+  await temjectCopy(srcPath, distPath, { name: 'world' }, true)
+  const res = fs.readFileSync(distPath, 'utf8')
+  expect(res).toBe('Hello, {{name:pascal}}!')
+})

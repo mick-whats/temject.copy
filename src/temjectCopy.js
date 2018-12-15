@@ -10,6 +10,7 @@ const makeDir = require('make-dir')
  * @param {string} srcPath - src file path
  * @param {string} distPath - dist file path
  * @param {Object} injections - inject key and value
+ * @param {boolean} [plain=false] - Plain copy
  * @return {Promise}
  * @example
  * // 'Hello, {{name:pascal}}!' > temjectCopySrc.txt
@@ -18,11 +19,22 @@ const makeDir = require('make-dir')
  * await temjectCopy(srcPath, distPath, { name: 'world' })
  * // temjectCopyDist.txt -> 'Hello, World!'
  */
-module.exports = function temjectCopy (srcPath, distPath, injections) {
+module.exports = function temjectCopy (
+  srcPath,
+  distPath,
+  injections,
+  plain = false
+) {
   return new Promise((resolve, reject) => {
     fs.readFile(srcPath, 'utf8', (err, src) => {
       if (err) reject(err)
-      const data = temject(src, injections)
+      let data = null
+      if (plain) {
+        data = src
+      } else {
+        data = temject(src, injections)
+      }
+
       makeDir.sync(path.dirname(distPath))
       writeFileAtomic(distPath, data, err => {
         if (err) reject(err)
