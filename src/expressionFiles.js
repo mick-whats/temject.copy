@@ -7,16 +7,21 @@ const { expressions } = require('temject')
  * fileに書き込まれているexpressionsを抽出する
  *
  * @param {Array} glob - paths or glob
- * @param {Object} [opts={}]
+ * @param {Object} [opts={}] - globby options
+ * @see https://github.com/sindresorhus/globby#options
  * @return {Promise<Array>}
  * @example
- * const opts = {ignoreFile: ['ignore.txt']}
- * const res = await expressionFiles(paths, opts)
- * // -> [ 'name', 'home', 'readme' ]
+ * const opts = {dot: false}
+ * const res = await expressionFiles([
+ *   './src/__tests__/testFiles/',
+ *   '!ignore.txt'
+ * ], opts)
+ * // -> [ 'name', 'readme' ]
  */
 module.exports = function expressionFiles (glob, opts = {}) {
   return new Promise(async (resolve, reject) => {
-    const paths = await globby(glob, { dot: true })
+    opts = Object.assign({ dot: true }, opts)
+    const paths = await globby(glob, opts)
     Promise.all(paths.map(p => readFile(p)))
       .then(items => {
         const res = expressions(items.join(''))

@@ -26,12 +26,11 @@ test('expressionFiles glob', async () => {
   expect(res).toContain('name')
 })
 test('expressionFiles glob', async () => {
-  const res = await expressionFiles([
-    './src/__tests__/testFiles/',
-    '!**/ignore.txt'
-  ])
-  expect(res).toHaveLength(3)
+  const res = await expressionFiles(
+    ['./src/__tests__/testFiles/', '!**/ignore.txt'],
+    { dot: false }
+  )
+  expect(res).toHaveLength(2)
   expect(res).toContain('readme')
-  expect(res).toContain('home')
   expect(res).toContain('name')
 })
