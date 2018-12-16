@@ -18,15 +18,22 @@ const { expressions } = require('temject')
  * ], opts)
  * // -> [ 'name', 'readme' ]
  */
-module.exports = function expressionFiles (glob, opts = {}) {
-  return new Promise(async (resolve, reject) => {
-    opts = Object.assign({ dot: true }, opts)
-    const paths = await globby(glob, opts)
-    Promise.all(paths.map(p => readFile(p)))
-      .then(items => {
-        const res = expressions(items.join(''))
-        return resolve(res)
-      })
-      .catch(reject)
+module.exports = async function expressionFiles (glob, opts = {}) {
+  opts = Object.assign({ dot: true }, opts)
+  const paths = await globby(glob, opts)
+  return Promise.all(paths.map(p => readFile(p))).then(items => {
+    return expressions(items.join(''))
   })
 }
+// module.exports = function expressionFiles (glob, opts = {}) {
+//   return new Promise(async (resolve, reject) => {
+//     opts = Object.assign({ dot: true }, opts)
+//     const paths = await globby(glob, opts)
+//     Promise.all(paths.map(p => readFile(p)))
+//       .then(items => {
+//         const res = expressions(items.join(''))
+//         return resolve(res)
+//       })
+//       .catch(reject)
+//   })
+// }
