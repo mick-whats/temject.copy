@@ -4,9 +4,15 @@
   "engines": {
     "node": ">=7.10.1"
   },
-  "description": "",
+  "description": "Copy the file while converting with temject",
   "keywords": [
     "template",
+    "temject",
+    "filecopy",
+    "inject",
+    "templite",
+    "change-case",
+    "date-and-time",
     "hashids"
   ],
   "scripts": {
