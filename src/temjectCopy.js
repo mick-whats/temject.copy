@@ -5,6 +5,7 @@ const makeDir = require('make-dir')
 const readFile = require('./readFile')
 const errors = require('./errors')
 
+/** @module temjectCopy */
 /**
  * temjectCopy
  *
@@ -12,22 +13,17 @@ const errors = require('./errors')
  * @param {string} distPath - dist file path
  * @param {Object} injections - inject key and value
  * @param {Object} [opts={}] - options
- * @param {boolean} opts.plain - Plain copy
- * @param {boolean} opts.overwrite - Force overwrite
+ * @param {boolean} [opts.plain=false] - Plain copy
+ * @param {boolean} [opts.overwrite=false] - Force overwrite
  * @return {Promise<boolean>}
  * @example
  * // 'Hello, {{name:pascal}}!' > temjectCopySrc.txt
- * const srcPath = path.join(os.tmpdir(), 'temjectCopySrc.txt')
- * const distPath = path.join(os.tmpdir(), 'temjectCopyDist.txt')
+ * const srcPath = 'src.txt'
+ * const distPath = 'dist.txt'
  * await temjectCopy(srcPath, distPath, { name: 'world' })
- * // temjectCopyDist.txt -> 'Hello, World!'
+ * // dist.txt -> 'Hello, World!'
  */
-module.exports = async function temjectCopy (
-  srcPath,
-  distPath,
-  injections,
-  opts = {}
-) {
+async function temjectCopy (srcPath, distPath, injections, opts = {}) {
   const src = await readFile(srcPath)
   let data = null
   if (!opts.overwrite) {
@@ -45,3 +41,5 @@ module.exports = async function temjectCopy (
   writeFileAtomic.sync(distPath, data)
   return true
 }
+
+module.exports = temjectCopy

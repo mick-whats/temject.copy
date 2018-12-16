@@ -2,6 +2,7 @@ const path = require('path')
 const globby = require('globby')
 const minimatch = require('minimatch')
 const temjectCopy = require('./temjectCopy')
+/** @module temjectCopy */
 /**
  * temjectCopy
  *
@@ -9,23 +10,19 @@ const temjectCopy = require('./temjectCopy')
  * @param {string} distDir - dist directory path
  * @param {Object} injections - inject key and value
  * @param {Object} [opts={}] - options
- * @param {boolean} [opts.dry=undefined] - not copy
- * @param {Array} [opts.plainCopy=undefined] - not temject convert
+ * @param {boolean} [opts.dry=false] - not copy
+ * @param {Array} [opts.plainCopy=false] - not temject convert
+ * @param {boolean} [opts.overwrite=false] - Force overwrite
  * @return {Promise<undefined>}
  * @example
  * await temjectCopyRecursive(
- *   ['./src/__tests__/testFiles'],
+ *   ['./testFiles'],
  *   './sample',
  *   { name: 'MyName' },
  *   { dot: false, dry: true }
  * )
  */
-module.exports = async function temjectCopyRecursive (
-  srcDir,
-  distDir,
-  injections,
-  opts = {}
-) {
+async function temjectCopyRecursive (srcDir, distDir, injections, opts = {}) {
   opts = Object.assign({ dot: true }, opts)
   const cwd = opts.cwd || process.cwd()
   let globPattern = []
@@ -79,3 +76,5 @@ module.exports = async function temjectCopyRecursive (
     })
   }
 }
+
+module.exports = temjectCopyRecursive
