@@ -1,1 +1,1 @@
-{{name}}{{ig}}
+{{name}}{{ig:snake}}
