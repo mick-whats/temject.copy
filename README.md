@@ -1,4 +1,6 @@
 # temject.copy
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy?ref=badge_shield)
+
 
 Copy the file while converting with temject
 
@@ -97,3 +99,6 @@ await temjectCopyRecursive(
 ## License
 MIT © mick-whats
 
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy?ref=badge_large)
