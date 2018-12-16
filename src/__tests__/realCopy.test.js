@@ -1,5 +1,7 @@
-const temjectCopyRecursive = require('../temjectCopyRecursive')
-test.skip('should ', async () => {
+const { temjectCopyRecursive } = require('..')
+
+// mockを使わず実際にコピーを行う
+test.skip('real copy', async () => {
   const res = await temjectCopyRecursive(
     ['./src/__tests__/testFiles'],
     './sample',
@@ -8,6 +10,10 @@ test.skip('should ', async () => {
       readme: 'MyReadme',
       ig: 'MyIgnore',
       home: 'MyHome'
+    },
+    {
+      plainCopy: ['**/.test.txt'],
+      overwrite: true
     }
   )
   console.log('res: ', res)

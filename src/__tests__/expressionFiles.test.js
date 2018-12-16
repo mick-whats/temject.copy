@@ -1,4 +1,4 @@
-const expressionFiles = require('../expressionFiles')
+const { expressionFiles } = require('..')
 const globby = require('globby')
 
 test('expressionFiles', async () => {

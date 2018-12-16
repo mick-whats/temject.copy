@@ -1,4 +1,4 @@
-const temjectCopy = require('../temjectCopy')
+const { temjectCopy } = require('..')
 const os = require('os')
 const fs = require('fs')
 const writeFileAtomic = require('write-file-atomic')
