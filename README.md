@@ -4,6 +4,10 @@ Copy the file while converting with temject
 
 [temject \- npm](https://www.npmjs.com/package/temject)
 
+[![Build Status](https://travis-ci.org/mick-whats/temject.copy.svg?branch=master)](https://travis-ci.org/mick-whats/temject.copy)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy?ref=badge_shield)
+
+
 | function             | temject | temjectCopy |
 | -------------------- | ------- | ----------- |
 | temject              | ⭕       | ⭕           |
@@ -97,3 +101,4 @@ await temjectCopyRecursive(
 ## License
 MIT © mick-whats
 
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmick-whats%2Ftemject.copy?ref=badge_large)
